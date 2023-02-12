@@ -15,7 +15,6 @@ token = config.token
 botId = config.botId
 
 bot = async_telebot.AsyncTeleBot(token)
-bot_func = Client('bot_func', config.api_id, config.api_hash, bot_token=config.token)
 
 
 
@@ -219,10 +218,6 @@ async def messages(message: telebot.types.Message):
                                 await bot.send_message(message.chat.id, f"<a href=\"tg://user?id={message.reply_to_message.from_user.id}\">{message.reply_to_message.from_user.first_name}</a> теперь может говорить🗣️", parse_mode='html', disable_web_page_preview=True)
             if(message.text.lower().startswith("эль инфа")):
                 await bot.send_message(message.chat.id, f"💫Я думаю, что такое возможно на {randrange(0, 100)}%")
-            if message.text.startswith("@"):
-                user = await Func.GetUserByUsername("LanceMinecraft", bot_func)
-                print(user.id)
-                print(user.first_name)
             #buttons
             if(message.text == "О ботеℹ️" and message.from_user.id == message.chat.id):
                 await bot.send_message(message.chat.id, "<b>🧿Мой создатель: Lance - владелец FBA Team</b>\n<i>Я была создана, чтобы помогать админам управлять чатом, замещать своих подруг в работе, если они вдруг \"заснули\"</i>\n\nМои подруги:\n- <a href=\"t.me/Laura_cm_bot\">Лаура</a>", parse_mode='html')
