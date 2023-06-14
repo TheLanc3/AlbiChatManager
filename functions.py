@@ -1,9 +1,3 @@
-import config
-import asyncio
-from pyrogram import Client
-from pyrogram.raw.functions.contacts import ResolveUsername
-from config import token
-
 class Func:
     def GetAdmin(member_status: str):
         if(member_status == "creator"):
